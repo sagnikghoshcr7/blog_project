@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+{% block title %} Drafted Post {% endblock %}
+{% block body_block %}
+
+    {% for post in posts %}
+        <div class="ppst">
+            <p class="data">Created: {{post.created_date|date:'d -m-y'}}</P>
+            <h1><a class="btn btn-default" href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h1>
+            <p>{{post.text|truncatechars:200}}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
+    
